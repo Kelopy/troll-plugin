@@ -1,0 +1,7 @@
+name: Trollol
+version: '${project.version}'
+main: me.kelopy.trollol.Trollol
+authors: [ Kelopy ]
+commands:
+  troll:
+    description: troll people!
