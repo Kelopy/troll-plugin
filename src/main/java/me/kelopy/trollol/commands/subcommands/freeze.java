@@ -28,10 +28,14 @@ public class freeze extends SubCommand {
         if(args.length > 1){
             Player target = Bukkit.getPlayerExact(args[1]);
 
-            target.setWalkSpeed(0);
+            if(target != null){
+                target.setWalkSpeed(0);
 
-            player.sendMessage(ChatColor.GRAY + "You froze " + ChatColor.AQUA + target.getDisplayName() + ChatColor.GRAY + "!");
-            player.sendMessage(ChatColor.GRAY + "You were frozen by " + ChatColor.AQUA + player.getDisplayName() + ChatColor.GRAY + "!");
+                player.sendMessage(ChatColor.GRAY + "You froze " + ChatColor.AQUA + target.getDisplayName() + ChatColor.GRAY + "!");
+                player.sendMessage(ChatColor.GRAY + "You were frozen by " + ChatColor.AQUA + player.getDisplayName() + ChatColor.GRAY + "!");
+            }else{
+                player.sendMessage(ChatColor.RED + "Player not found.");
+            }
 
         }else if(args.length == 1){
             player.sendMessage(ChatColor.RED + "Usage: /troll freeze <player>");

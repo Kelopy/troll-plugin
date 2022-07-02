@@ -28,10 +28,14 @@ public class unfreeze extends SubCommand {
         if(args.length > 1){
             Player target = Bukkit.getPlayerExact(args[1]);
 
-            target.setWalkSpeed((float) 0.2);
+            if(target != null){
+                target.setWalkSpeed((float) 0.2);
 
-            player.sendMessage(ChatColor.GRAY + "You unfroze " + ChatColor.AQUA + target.getDisplayName() + ChatColor.GRAY + "!");
-            player.sendMessage(ChatColor.GRAY + "You were unfrozen by " + ChatColor.AQUA + player.getDisplayName() + ChatColor.GRAY + "!");
+                player.sendMessage(ChatColor.GRAY + "You unfroze " + ChatColor.AQUA + target.getDisplayName() + ChatColor.GRAY + "!");
+                player.sendMessage(ChatColor.GRAY + "You were unfrozen by " + ChatColor.AQUA + player.getDisplayName() + ChatColor.GRAY + "!");
+            }else{
+                player.sendMessage(ChatColor.RED + "Player not found.");
+            }
 
         }else if(args.length == 1){
             player.sendMessage(ChatColor.RED + "Usage: /troll unfreeze <player>");
